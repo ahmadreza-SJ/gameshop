@@ -99,8 +99,8 @@ The project is coded using a simple and intuitive structure presented bellow:
    |    |    |-- views.py                  # Serve HTML pages for authenticated users
    |    |    |-- urls.py                   # Define some super simple routes  
    |    |
-   |    |-- authentication/                # Handles auth routes (login and register)
-   |    |    |-- urls.py                   # Define authentication routes  
+   |    |-- db/                # Handles auth routes (login and register)
+   |    |    |-- urls.py                   # Define db routes  
    |    |    |-- views.py                  # Handles login and registration  
    |    |    |-- forms.py                  # Define auth forms (login and register) 
    |    |

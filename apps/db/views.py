@@ -4,9 +4,11 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 # Create your views here.
+from .models import Criticism
+from django.views import View
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, SignUpForm
+from .forms import LoginForm, SignUpForm, CreatorSignUpForm
 
 
 def login_view(request):
@@ -37,6 +39,7 @@ def register_user(request):
 
     if request.method == "POST":
         form = SignUpForm(request.POST)
+        creator_form = CreatorSignUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get("username")
@@ -53,5 +56,12 @@ def register_user(request):
             msg = 'Form is not valid'
     else:
         form = SignUpForm()
+        creator_form = CreatorSignUpForm()
 
-    return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
+    return render(request, "accounts/register.html", {"creator_form": creator_form, "form": form, "msg": msg, "success": success})
+
+
+class HomeView(View):
+    def get(self, request):
+        criticisms = Criticism.objects.raw("SELECT * FROM db_criticism")
+        return render(request, "my_project/home.html", {"criticisms": criticisms})

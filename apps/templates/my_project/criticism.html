@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Home {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <main>
+
+        {% include 'includes/preloader.html' %}
+        <div class="section-header pb-6 bg-primary text-white">
+            <div dir="rtl" class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-8 text-center">
+                        <h1 class="display-3 mb-4">تیتر نقد</h1>
+                        <img class="col-lg-12" src="/static/assets/img/BLOG/image-1.jpg"/>
+                        <div class="mt-4">
+                            <div class="col-md-2 pb-4">
+                                <img class="rounded-circle" src="/static/assets/img/team/profile-picture-1.jpg"/>
+                                <sub>1400/1/1</sub><br/>
+                                <sub>نام منتقد</sub><br/>
+                                <sub>نام بازی</sub><br/>
+                                <sub>امتیاز</sub>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section section-md">
+            <div dir="rtl" class="container">
+                <div class="row justify-content-evenly">
+                    <div class="col-12 col-md-8 text-lg-right">
+                        <p class="display-5">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -12,102 +12,192 @@
         {% include 'includes/preloader.html' %}
 
         <!-- Section -->
-        <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark" data-background="/static/assets/img/pages/form-image.jpg">
+        <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark" data-background="/static/assets/img/auth1.jpg">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
-                            <div class="text-center text-md-center mb-4 mt-md-0">
-                                <h1 class="mb-0 h3">
-                                    <a href="https://appseed.us/django/django-pixel-bootstrap-uikit" target="_blank">Django Pixel UI</a> - Register
-                                </h1>
-                                <br />
-                                <span class="font-weight-normal">
-                                    {% if msg %}
-                                        {{ msg | safe }}
-                                    {% else %}
-                                        Add your credentials
-                                    {% endif %}                                  
-                                </span>
+                             <div class="nav-wrapper position-relative mb-2">
+                                <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-text" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-text-1-tab" data-bs-toggle="tab"
+                                            href="#tabs-text-1" role="tab" aria-controls="tabs-text-1" aria-selected="true">کاربران</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-2-tab" data-bs-toggle="tab"
+                                            href="#tabs-text-2" role="tab" aria-controls="tabs-text-2"
+                                            aria-selected="false">بازیسازان</a>
+                                    </li>
+                                </ul>
                             </div>
-
-                            {% if not success %}
-
-                                <form method="post" action="" action="#">
-
-                                    {% csrf_token %}
-
-                                    <div class="form-group mb-4">
-                                        <label for="email">Username</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1"><span class="fas fa-user"></span></span>
-                                            {{ form.username }}
-                                        </div>  
-                                        <span class="text-error">{{ form.username.errors }}</span>
+                             <div class="tab-content" id="tabcontent1">
+                                <div class="tab-pane fade show active" id="tabs-text-1" role="tabpanel">
+                                    <div class="text-center text-md-center mb-4 mt-md-0">
+                                        <h1 class="mb-0 h3">
+                                            <a href="https://appseed.us/django/django-pixel-bootstrap-uikit" target="_blank"></a>  ثبت نام
+                                        </h1>
+                                        <br />
+                                        <span class="font-weight-normal">
+                                            {% if msg %}
+                                                {{ msg | safe }}
+                                            {% else %}
+                                                اطلاعات خود را وارد نمایید
+                                            {% endif %}
+                                        </span>
                                     </div>
-                                    <!-- Form -->
-                                    <div class="form-group mb-4">
-                                        <label for="email">Email</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span>
-                                            {{ form.email }}
-                                        </div>  
-                                        <span class="text-error">{{ form.email.errors }}</span>
-                                    </div>
-                                    <!-- End of Form -->
-                                    <div class="form-group">
-                                        <!-- Form -->
-                                        <div class="form-group mb-4">
-                                            <label for="password">Password</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
-                                                {{ form.password1 }}
-                                            </div>  
-                                            <span class="text-error">{{ form.password2.errors }}</span>
-                                        </div>
-                                        <div class="form-group mb-4">
-                                            <label for="password">Password Check</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
-                                                {{ form.password2 }}
-                                            </div>  
-                                            <span class="text-error">{{ form.password2.errors }}</span>
-                                        </div>                                    
-                                        <!-- End of Form -->
-                                        <div class="d-flex justify-content-between align-items-center mb-4">
-                                            <div class="form-check mb-0">
-                                                <input class="form-check-input" type="checkbox" value="" id="remember">
-                                                <label class="form-check-label mb-0" for="remember">
-                                                Agree <a class="fw-bold text-underline" href="#">Terms</a>
-                                                </label>
+
+                                    {% if not success %}
+
+                                        <form method="post" action="" action="#">
+
+                                            {% csrf_token %}
+
+                                            <div class="form-group mb-4">
+                                                <label for="email">نام کاربری</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text" id="basic-addon1"><span class="fas fa-user"></span></span>
+                                                    {{ form.username }}
+                                                </div>
+                                                <span class="text-error">{{ form.username.errors }}</span>
                                             </div>
-                                            <div><a href="{% url 'login' %}" class="text-right">Login</a></div>
-                                        </div>
+                                            <!-- Form -->
+                                            <div class="form-group mb-4">
+                                                <label for="email">ایمیل</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span>
+                                                    {{ form.email }}
+                                                </div>
+                                                <span class="text-error">{{ form.email.errors }}</span>
+                                            </div>
+                                            <!-- End of Form -->
+                                            <div class="form-group">
+                                                <!-- Form -->
+                                                <div class="form-group mb-4">
+                                                    <label for="password">رمز عبور</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
+                                                        {{ form.password1 }}
+                                                    </div>
+                                                    <span class="text-error">{{ form.password2.errors }}</span>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label for="password">تکرار رمز عبور</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
+                                                        {{ form.password2 }}
+                                                    </div>
+                                                    <span class="text-error">{{ form.password2.errors }}</span>
+                                                </div>
+                                                <!-- End of Form -->
+                                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                                    <div><a href="{% url 'login' %}" class="text-right">ورود</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="d-grid">
+                                                <button type="submit" name="register" class="btn btn-primary">ثبت نام</button>
+                                            </div>
+                                        </form>
+
+                                    {% else %}
+
+                                        <p class="mt-4 text-sm text-center">
+                                            <a href="{% url 'login' %}" class="btn btn-primary">Sign IN</a>
+                                        </p>
+
+                                    {% endif %}
+                                </div>
+                                <div class="tab-pane fade show active" id="tabs-text-2" role="tabpanel">
+                                    <div class="text-center text-md-center mb-4 mt-md-0">
+                                        <h1 class="mb-0 h3">
+                                            <a href="https://appseed.us/django/django-pixel-bootstrap-uikit" target="_blank"></a>  ثبت نام
+                                        </h1>
+                                        <br />
+                                        <span class="font-weight-normal">
+                                            {% if msg %}
+                                                {{ msg | safe }}
+                                            {% else %}
+                                                اطلاعات خود را وارد نمایید
+                                            {% endif %}
+                                        </span>
                                     </div>
-                                    <div class="d-grid">
-                                        <button type="submit" name="register" class="btn btn-primary">Sign UP</button>
-                                    </div>
-                                </form>
-                            
-                            {% else %} 
 
-                                <p class="mt-4 text-sm text-center">
-                                    <a href="{% url 'login' %}" class="btn btn-primary">Sign IN</a>
-                                </p>
-                            
-                            {% endif %}
+                                    {% if not success %}
 
-                            <br />
+                                        <form method="post" action="" action="#">
 
-                            <div class="d-flex justify-content-center align-items-center mt-4">
-                                <span class="fw-normal">
-                                    &copy; Themesberg - coded by 
-                                    <a href="https://appseed.us" target="_blank"
-                                       class="fw-bold text-underline">AppSeed</a>
-                                </span>
-                            </div>
+                                            {% csrf_token %}
 
-                        </div>
+                                            <div class="form-group mb-4">
+                                                <label for="email">نام شرکت</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text" id="basic-addon1"><span class="fas fa-user"></span></span>
+                                                    {{ creator_form.name }}
+                                                </div>
+                                                <span class="text-error">{{ creator_form.name.errors }}</span>
+                                            </div>
+                                            <!-- Form -->
+                                            <div class="form-group mb-4">
+                                                <label for="email">ایمیل</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text" id="basic-addon3"><span class="fas fa-envelope"></span></span>
+                                                    {{ creator_form.email }}
+                                                </div>
+                                                <span class="text-error">{{ creator_form.email.errors }}</span>
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label for="email">تاریخ تاسیس</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text" id="basic-addon3"><span class="fas fa-calendar"></span></span>
+                                                    {{ creator_form.founded_at }}
+                                                </div>
+                                                <span class="text-error">{{ creator_form.founded_at.errors }}</span>
+                                            </div>
+                                            <div class="form-group mb-4">
+                                                <label for="email">ملیت</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text" id="basic-addon3"><span class="fas fa-calendar"></span></span>
+                                                    {{ creator_form.country }}
+                                                </div>
+                                                <span class="text-error">{{ creator_form.country.errors }}</span>
+                                            </div>
+                                            <!-- End of Form -->
+                                            <div class="form-group">
+                                                <!-- Form -->
+                                                <div class="form-group mb-4">
+                                                    <label for="password">رمز عبور</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
+                                                        {{ form.password1 }}
+                                                    </div>
+                                                    <span class="text-error">{{ form.password2.errors }}</span>
+                                                </div>
+                                                <div class="form-group mb-4">
+                                                    <label for="password">تکرار رمز عبور</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-text" id="basic-addon4"><span class="fas fa-unlock-alt"></span></span>
+                                                        {{ form.password2 }}
+                                                    </div>
+                                                    <span class="text-error">{{ form.password2.errors }}</span>
+                                                </div>
+                                                <!-- End of Form -->
+                                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                                    <div><a href="{% url 'login' %}" class="text-right">ورود</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="d-grid">
+                                                <button type="submit" name="register" class="btn btn-primary">ثبت نام</button>
+                                            </div>
+                                        </form>
+
+                                    {% else %}
+
+                                        <p class="mt-4 text-sm text-center">
+                                            <a href="{% url 'login' %}" class="btn btn-primary">Sign IN</a>
+                                        </p>
+
+                                    {% endif %}
+                                </div>
+                             </div>
                     </div>
                 </div>
             </div>

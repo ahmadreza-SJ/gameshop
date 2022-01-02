@@ -1,0 +1,175 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Home {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <main>
+
+        {% include 'includes/preloader.html' %}
+         <!-- Section -->
+        <div class="section section-md">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <!-- Tab Nav -->
+                        <div class="nav-wrapper position-relative mb-2">
+                            <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-text" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-text-1-tab" data-bs-toggle="tab"
+                                        href="#tabs-text-1" role="tab" aria-controls="tabs-text-1" aria-selected="true">نقد ها</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-2-tab" data-bs-toggle="tab"
+                                        href="#tabs-text-2" role="tab" aria-controls="tabs-text-2"
+                                        aria-selected="false">بازی ها</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End of Tab Nav -->
+                        <!-- Tab Content -->
+                        <div class="card border-0">
+                            <div class="card-body p-0">
+                                <div class="tab-content" id="tabcontent1">
+                                    <div class="tab-pane fade show active" id="tabs-text-1" role="tabpanel">
+                                        <!-- Must Replace -->
+                                        <div class="mb-3">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="serch-critic" placeholder="جستجو"
+                                                    aria-label="Search" aria-describedby="basic-addon2">
+                                                    <button class="btn btn-outline-primary"><span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span></button>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6 mt-4 mt-md-0">
+                                            <!-- Radio -->
+                                            <fieldset>
+                                                <legend class="h6">مرتب سازی</legend>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                                        value="option1" checked>
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        پیش فرض
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                                        value="option2">
+                                                    <label class="form-check-label" for="exampleRadios2">
+                                                        براساس تاریخ
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
+                                                        value="option3">
+                                                    <label class="form-check-label" for="exampleRadios3">
+                                                        براساس امتیاز
+                                                    </label>
+                                                </div>
+                                                <!-- End of Radio -->
+                                            </fieldset>
+                                        </div>
+
+                                        {% for criticism in criticisms %}
+                                        <div class="col-12 mt-4">
+                                            <div class="col-12 mt-2">
+                                                <div class="card shadow mb-2">
+                                                    <div class="card-body px-5 py-5 text-center text-md-right">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-10">
+                                                                <sub>{{ criticism.created_at }} - {{ criticism.critic }}</sub>
+                                                                <h2 class="mb-3">{{ criticism.title }}</h2>
+                                                                <p class="mb-0">
+                                                                    {{ criticism.text|truncatechars:100 }}
+                                                                </p>
+                                                            </div>
+                                                            <div  class="flex-column col-md-2">
+                                                                <img src={{ criticism.image.url }} class="image-md rounded-circle">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+
+                                        <!-- Must Replace -->
+                                    </div>
+
+                                    <div class="row mb-5 fade" id="tabs-text-2" role="tabpanel">
+                                        <div class="mb-3">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="serch-game" placeholder="جستجو"
+                                                    aria-label="Search" aria-describedby="basic-addon2">
+                                                    <button class="btn btn-outline-primary"><span class="input-group-text" id="basic-addon2"><span class="fas fa-search"></span></span></button>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                            <div class="card shadow">
+                                                <img src="/static/assets/img/blog/image-1.jpg" class="card-img-top rounded-top"
+                                                    alt="Themesberg office">
+                                                <div class="card-body">
+                                                    <span class="h6 icon-tertiary small"><span class="fas fa-medal me-2"></span>ژانر</span>
+                                                    <h3 class="h5 card-title mt-3">نام بازی</h3>
+                                                    <p class="card-text">توضیح توضیح توضیح توضیح توضیح توضیح توضیح توضیح </p>
+                                                    <a href="#" class="btn btn-primary btn-sm">10،000 تومان</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                            <div class="card shadow">
+                                                <img src="/static/assets/img/blog/image-1.jpg" class="card-img-top rounded-top"
+                                                    alt="Themesberg office">
+                                                <div class="card-body">
+                                                    <span class="h6 icon-tertiary small"><span class="fas fa-medal me-2"></span>ژانر</span>
+                                                    <h3 class="h5 card-title mt-3">نام بازی</h3>
+                                                    <p class="card-text">توضیح توضیح توضیح توضیح توضیح توضیح توضیح توضیح </p>
+                                                    <a href="#" class="btn btn-primary btn-sm">10،000 تومان</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                            <div class="card shadow">
+                                                <img src="/static/assets/img/blog/image-1.jpg" class="card-img-top rounded-top"
+                                                    alt="Themesberg office">
+                                                <div class="card-body">
+                                                    <span class="h6 icon-tertiary small"><span class="fas fa-medal me-2"></span>ژانر</span>
+                                                    <h3 class="h5 card-title mt-3">نام بازی</h3>
+                                                    <p class="card-text">توضیح توضیح توضیح توضیح توضیح توضیح توضیح توضیح </p>
+                                                    <a href="#" class="btn btn-primary btn-sm">10،000 تومان</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
+                                            <div class="card shadow">
+                                                <img src="/static/assets/img/blog/image-1.jpg" class="card-img-top rounded-top"
+                                                    alt="Themesberg office">
+                                                <div class="card-body">
+                                                    <span class="h6 icon-tertiary small"><span class="fas fa-medal me-2"></span>ژانر</span>
+                                                    <h3 class="h5 card-title mt-3">نام بازی</h3>
+                                                    <p class="card-text">توضیح توضیح توضیح توضیح توضیح توضیح توضیح توضیح </p>
+                                                    <a href="#" class="btn btn-primary btn-sm">10،000 تومان</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Tab Content -->
+                    </div>
+                </div>
+        </div>
+        <!-- End of Section -->
+
+    </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
